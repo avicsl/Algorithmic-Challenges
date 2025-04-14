@@ -1,5 +1,4 @@
-# Problem I  
-**Echoes of the Hollow Depth**
+# Echoes of the Hollow Depth
 
 In the shattered lands of Milos lies a forgotten temple whispered about in riddles. They call it the *Whispering Curse*—a madness that begins with a murmur and ends in silence. You, the Seeker of Hollow Depths, must follow the Whisper’s path. But beware: it never turns back, never splits, and always follows the deepest path.
 
