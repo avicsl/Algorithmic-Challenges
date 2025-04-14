@@ -1,4 +1,4 @@
-# Algorithms and Complexity – CSALCOMP Project
+# Algorithms and Complexity
 
 This repository is developed as part of the CSALCOMP (Algorithms and Complexities) course. It serves as a practical exploration of core algorithmic techniques and their applications in solving computational problems. The focus lies in both the implementation and analysis of algorithms, with an emphasis on understanding and optimizing time and space complexity.
 
