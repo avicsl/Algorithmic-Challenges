@@ -1,0 +1,75 @@
+first_line = []
+graph = {}
+visited = []
+order = []
+queue = []
+
+first_line_input = input().split()
+
+try:
+    first_line = [int(i) for i in first_line_input]
+
+    if len(first_line) != 2:
+        exit()
+
+    n, m = first_line
+
+    if n < 2 or n > 26 or m < 1 or m > (n * (n - 1)) // 2:
+        exit()
+
+    bell_labels = set()
+
+    for _ in range(m):
+        connection = input().split()
+        if len(connection) != 2:
+            exit()
+        a, b = connection
+        if not (a.isupper() and b.isupper() and len(a) == 1 and len(b) == 1):
+            exit()
+
+        if a not in graph:
+            graph[a] = []
+        if b not in graph:
+            graph[b] = []
+        graph[a].append(b)
+        graph[b].append(a)
+        bell_labels.add(a)
+        bell_labels.add(b)
+
+    start = input().strip()
+    if not (start.isupper() and len(start) == 1):
+        exit()
+    bell_labels.add(start)
+
+    if len(bell_labels) != n:
+        exit()
+
+    # Sort all adjacency lists manually
+    for key in graph:
+        graph[key].sort()
+
+    # Initialize visited and queue
+    visited.append(start)
+    queue.append((start, 0))  # (bell, depth)
+
+    while queue:
+        # Find all nodes at the current depth
+        current_depth = queue[0][1]
+        current_level = [item for item in queue if item[1] == current_depth]
+        queue = [item for item in queue if item[1] != current_depth]
+
+        # Sort current level by bell name (lexical order)
+        current_level.sort(key=lambda x: x[0])
+
+        for bell, depth in current_level:
+            order.append(bell)
+            if bell in graph:
+                for neighbor in graph[bell]:
+                    if neighbor not in visited:
+                        visited.append(neighbor)
+                        queue.append((neighbor, depth + 1))
+
+    print(' '.join(order))
+
+except:
+    exit()
